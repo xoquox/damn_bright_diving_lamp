@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.1.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -6501,9 +6501,9 @@ Marquardt, Siemens, C&amp;K, ITT, and others&lt;p&gt;
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="U$8" library="akku" deviceset="AKKU" device=""/>
 <part name="U$9" library="akku" deviceset="AKKU" device=""/>
-<part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="IC2" library="v-reg" deviceset="78XXS" device=""/>
+<part name="GND13" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6549,9 +6549,9 @@ Marquardt, Siemens, C&amp;K, ITT, and others&lt;p&gt;
 <instance part="GND10" gate="1" x="-40.64" y="58.42"/>
 <instance part="U$8" gate="G$1" x="-76.2" y="111.76" rot="R270"/>
 <instance part="U$9" gate="G$1" x="-81.28" y="76.2" rot="R270"/>
-<instance part="GND11" gate="1" x="-68.58" y="93.98"/>
 <instance part="GND12" gate="1" x="-73.66" y="53.34"/>
 <instance part="IC2" gate="1" x="-35.56" y="83.82"/>
+<instance part="GND13" gate="1" x="33.02" y="76.2"/>
 </instances>
 <busses>
 </busses>
@@ -6594,11 +6594,15 @@ Marquardt, Siemens, C&amp;K, ITT, and others&lt;p&gt;
 <pinref part="C1" gate="G$1" pin="2"/>
 <wire x1="-45.72" y1="81.28" x2="-45.72" y2="83.82" width="0.1524" layer="91"/>
 <pinref part="U$9" gate="G$1" pin="+"/>
-<wire x1="-76.2" y1="83.82" x2="-58.42" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="-76.2" y1="83.82" x2="-68.58" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="-68.58" y1="83.82" x2="-58.42" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="-58.42" y1="83.82" x2="-58.42" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="1" pin="IN"/>
 <wire x1="-45.72" y1="83.82" x2="-43.18" y2="83.82" width="0.1524" layer="91"/>
 <junction x="-45.72" y="83.82"/>
+<pinref part="U$8" gate="G$1" pin="-"/>
+<wire x1="-71.12" y1="104.14" x2="-68.58" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="-68.58" y1="104.14" x2="-68.58" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="37V" class="0">
@@ -6694,16 +6698,19 @@ Marquardt, Siemens, C&amp;K, ITT, and others&lt;p&gt;
 <junction x="-35.56" y="66.04"/>
 </segment>
 <segment>
-<pinref part="U$8" gate="G$1" pin="-"/>
-<pinref part="GND11" gate="1" pin="GND"/>
-<wire x1="-71.12" y1="104.14" x2="-68.58" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="-68.58" y1="104.14" x2="-68.58" y2="96.52" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="U$9" gate="G$1" pin="-"/>
 <pinref part="GND12" gate="1" pin="GND"/>
 <wire x1="-76.2" y1="68.58" x2="-73.66" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="-73.66" y1="68.58" x2="-73.66" y2="55.88" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R1" gate="G$1" pin="1"/>
+<wire x1="33.02" y1="81.28" x2="33.02" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="T1" gate="G$1" pin="E"/>
+<wire x1="33.02" y1="78.74" x2="17.78" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="78.74" x2="17.78" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="GND13" gate="1" pin="GND"/>
+<junction x="33.02" y="78.74"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -6762,15 +6769,6 @@ Marquardt, Siemens, C&amp;K, ITT, and others&lt;p&gt;
 <label x="-10.16" y="43.18" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="R8" gate="G$1" pin="2"/>
-<wire x1="111.76" y1="93.98" x2="104.14" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="93.98" x2="104.14" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="2" gate="G$1" pin="VCC"/>
-<wire x1="104.14" y1="83.82" x2="106.68" y2="83.82" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="MOD3" class="0">
 <segment>
 <pinref part="3" gate="G$1" pin="OUT"/>
@@ -6787,15 +6785,6 @@ Marquardt, Siemens, C&amp;K, ITT, and others&lt;p&gt;
 <pinref part="U$1" gate="G$1" pin="D6"/>
 <wire x1="0" y1="40.64" x2="-10.16" y2="40.64" width="0.1524" layer="91"/>
 <label x="-10.16" y="40.64" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$8" class="0">
-<segment>
-<pinref part="R9" gate="G$1" pin="2"/>
-<wire x1="142.24" y1="93.98" x2="134.62" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="93.98" x2="134.62" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="3" gate="G$1" pin="VCC"/>
-<wire x1="134.62" y1="83.82" x2="137.16" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="MOD4" class="0">
@@ -6843,15 +6832,6 @@ Marquardt, Siemens, C&amp;K, ITT, and others&lt;p&gt;
 <label x="-10.16" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$12" class="0">
-<segment>
-<pinref part="R11" gate="G$1" pin="2"/>
-<wire x1="109.22" y1="50.8" x2="101.6" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="50.8" x2="101.6" y2="40.64" width="0.1524" layer="91"/>
-<pinref part="5" gate="G$1" pin="VCC"/>
-<wire x1="101.6" y1="40.64" x2="104.14" y2="40.64" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$3" class="0">
 <segment>
 <pinref part="Q1" gate="1" pin="S"/>
@@ -6861,15 +6841,6 @@ Marquardt, Siemens, C&amp;K, ITT, and others&lt;p&gt;
 <wire x1="33.02" y1="93.98" x2="33.02" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="22.86" y1="93.98" x2="33.02" y2="93.98" width="0.1524" layer="91"/>
 <junction x="33.02" y="93.98"/>
-</segment>
-</net>
-<net name="N$5" class="0">
-<segment>
-<pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="33.02" y1="81.28" x2="33.02" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="T1" gate="G$1" pin="E"/>
-<wire x1="33.02" y1="78.74" x2="17.78" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="78.74" x2="17.78" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -6911,6 +6882,7 @@ Marquardt, Siemens, C&amp;K, ITT, and others&lt;p&gt;
 <pinref part="IC2" gate="1" pin="OUT"/>
 <wire x1="-27.94" y1="83.82" x2="-22.86" y2="83.82" width="0.1524" layer="91"/>
 <junction x="-22.86" y="83.82"/>
+<wire x1="-22.86" y1="83.82" x2="-10.16" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="+5V"/>
@@ -6921,6 +6893,47 @@ Marquardt, Siemens, C&amp;K, ITT, and others&lt;p&gt;
 <junction x="40.64" y="27.94"/>
 <wire x1="40.64" y1="20.32" x2="45.72" y2="20.32" width="0.1524" layer="91"/>
 <label x="43.18" y="20.32" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="66.04" y1="50.8" x2="71.12" y2="50.8" width="0.1524" layer="91"/>
+<label x="68.58" y="50.8" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="68.58" y1="93.98" x2="73.66" y2="93.98" width="0.1524" layer="91"/>
+<label x="71.12" y="93.98" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="104.14" y1="101.6" x2="109.22" y2="101.6" width="0.1524" layer="91"/>
+<label x="106.68" y="101.6" size="1.778" layer="95"/>
+<pinref part="R8" gate="G$1" pin="2"/>
+<wire x1="111.76" y1="93.98" x2="109.22" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="93.98" x2="104.14" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="93.98" x2="104.14" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="2" gate="G$1" pin="VCC"/>
+<wire x1="104.14" y1="83.82" x2="106.68" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="101.6" x2="109.22" y2="93.98" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="134.62" y1="104.14" x2="139.7" y2="104.14" width="0.1524" layer="91"/>
+<label x="137.16" y="104.14" size="1.778" layer="95"/>
+<pinref part="R9" gate="G$1" pin="2"/>
+<wire x1="142.24" y1="93.98" x2="139.7" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="93.98" x2="134.62" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="93.98" x2="134.62" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="3" gate="G$1" pin="VCC"/>
+<wire x1="134.62" y1="83.82" x2="137.16" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="104.14" x2="139.7" y2="93.98" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="106.68" y1="55.88" x2="111.76" y2="55.88" width="0.1524" layer="91"/>
+<label x="109.22" y="55.88" size="1.778" layer="95"/>
+<pinref part="R11" gate="G$1" pin="2"/>
+<wire x1="109.22" y1="50.8" x2="106.68" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="50.8" x2="101.6" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="50.8" x2="101.6" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="5" gate="G$1" pin="VCC"/>
+<wire x1="101.6" y1="40.64" x2="104.14" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="55.88" x2="106.68" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
